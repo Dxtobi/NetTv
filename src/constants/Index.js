@@ -1,4 +1,5 @@
-import {BiMoviePlay, BiMusic } from 'react-icons/bi';
+import { BiMoviePlay } from 'react-icons/bi';
+import {BsTwitter } from 'react-icons/bs';
 import { GiAnimalSkull } from 'react-icons/gi';
 
 export const headerConstants = {
@@ -24,10 +25,11 @@ export const footerLinks = [
     },
 
     {
-        path: '/music',
-        icon: BiMusic,
-        name: 'User'
-    }
+        path: '/twit-imgs',
+        icon: BsTwitter,
+        name: 'Twitter Generator'
+    },
+
 ]
 
 const longtext = `Lorem ipsum,  repellat voluptatibus. 
