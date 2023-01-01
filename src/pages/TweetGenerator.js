@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import openai from 'openai';
+import OpenAIAPI from 'react-openai-api';
 import GenTwit from './GenTwiit';
 
 const TwitApi = () => {
@@ -11,17 +12,20 @@ const TwitApi = () => {
     setTweet(event.target.value);
   };
 
+  const openAI = new OpenAIAPI({
+    apiKey: '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',
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    openai.apiKey = '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';
+    //openai.apiKey = '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';
 
-    openai.getImage({
-      model: 'image-alpha-001',
-      prompt: tweet,
-    }).then((response) => {
-      setImageUrl(response.data.url);
-    });
+    openAI.image.create({
+        model: 'image-alpha-001',
+        prompt: tweet,
+      }).then((response) => {
+        setImageUrl(response.data.url);
+      });
   };
 
   return (
@@ -36,7 +40,7 @@ const TwitApi = () => {
         </div>
         <input type="submit" value="Generate Image"  className='twit-img-generate-btn'/>
       </form>
-          {imageUrl && <img src={imageUrl} alt="Generated Image" className='twit-generated-img' />}
+          {imageUrl && <img src={imageUrl} alt="Generated" className='twit-generated-img' />}
         
           <div className='divider' />
           <GenTwit/>
