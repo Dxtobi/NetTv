@@ -113,7 +113,6 @@ a.watch-link {
 }
 .single-post {
     color: white;
-    overflow: scroll;
     background: #000004;
     width: 100%;
     z-index: 20;
