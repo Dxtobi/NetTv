@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import openai from 'openai';
-import OpenAIAPI from 'react-openai-api';
+const { Configuration, OpenAIApi } = require("openai");
+//import OpenAIAPI from 'react-openai-api';
+
 const GenTwit = () => {
   const [imageFile, setImageFile] = useState(null);
   const [tweetNature, setTweetNature] = useState('');
   const [tweet, setTweet] = useState('');
 
-  const openAI = new OpenAIAPI({
+  const configuration = new Configuration({
     apiKey: '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',
   });
+  const openai = new OpenAIApi(configuration);
 
   const handleFileChange = (event) => {
     setImageFile(event.target.files[0]);
@@ -25,7 +27,7 @@ const GenTwit = () => {
     formData.append('image', imageFile);
     formData.append('prompt', tweetNature);
 
-    openAI.tweet.create({
+    openai.createImage({
       model: 'image-alpha-001',
       formData,
     }).then((response) => {

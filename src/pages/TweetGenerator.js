@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import openai from 'openai';
-import OpenAIAPI from 'react-openai-api';
+//import openai from 'openai';
+//import OpenAIAPI from 'react-openai-api';
 import GenTwit from './GenTwiit';
-
+const { Configuration, OpenAIApi } = require("openai");
 const TwitApi = () => {
   const [tweet, setTweet] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -12,15 +12,19 @@ const TwitApi = () => {
     setTweet(event.target.value);
   };
 
-  const openAI = new OpenAIAPI({
+  
+
+  const configuration = new Configuration({
     apiKey: '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',
   });
+  const openai = new OpenAIApi(configuration);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     //openai.apiKey = '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';
 
-    openAI.image.create({
+    openai.createCompletion({
         model: 'image-alpha-001',
         prompt: tweet,
       }).then((response) => {
