@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-const { Configuration, OpenAIApi } = require("openai");
+import { Configuration, OpenAIApi } from "openai"
+
 //import OpenAIAPI from 'react-openai-api';
 
 const GenTwit = () => {
@@ -8,7 +9,7 @@ const GenTwit = () => {
   const [tweet, setTweet] = useState('');
 
   const configuration = new Configuration({
-    apiKey: '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',
+    apiKey:process.env.OPEN_AI_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
