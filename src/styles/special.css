@@ -112,12 +112,13 @@ a.watch-link {
     border-radius: 1rem;
 }
 .single-post {
-    color: white;
     background: #000004;
-    width: 100%;
-    z-index: 20;
-    min-height: 100vh;
+    color: #fff;
     margin-top: 4rem;
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 15rem;
+    z-index: 20;
 }
 .search-container {
     width: 100%;

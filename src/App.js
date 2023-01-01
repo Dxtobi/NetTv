@@ -3,9 +3,9 @@ import { Routes, Route, Navigate} from 'react-router-dom'
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Anime } from './pages/Animie';
-import AuthPage from './pages/AuthPage';
-import { Game } from './pages/GameUi';
-import { HomePage } from './pages/HomePage';
+//import AuthPage from './pages/AuthPage';
+//import { Game } from './pages/GameUi';
+import TwitApi from './pages/TweetGenerator';
 import Movie from './pages/Movie';
 import { Movies } from './pages/Movies';
 //import styles from './styles';
@@ -24,7 +24,7 @@ function App() {
           <Route path='/' exact element={<Movies />} />
           <Route path='/movie' exact element={<Movie />} />
           <Route path='/anime' exact element={<Anime/>}/>
-          <Route path='/auth' exact element={authenticated ? <Navigate to='/'/> : <AuthPage/>}/>
+          <Route path='/twit-imgs' exact element={ <TwitApi/>}/>
           <Route path='*' exact element={<Movies/>}/>
         </Routes>
         <Footer/>
