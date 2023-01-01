@@ -26,7 +26,7 @@ const TwitApi = () => {
     
 
     openai.createCompletion({
-        model: 'image-alpha-001',
+       // model: 'image-alpha-001',
         prompt: tweet,
       }).then((response) => {
         setImageUrl(response.data.url);

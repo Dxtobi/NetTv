@@ -29,7 +29,7 @@ const GenTwit = () => {
     formData.append('prompt', tweetNature);
 
     openai.createImage({
-      model: 'image-alpha-001',
+      //model: 'image-alpha-001',
       formData,
     }).then((response) => {
       setTweet(response.data.tweet);
