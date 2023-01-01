@@ -51,7 +51,7 @@
         justify-content: center;
         margin: 1rem;
     }
-    a.watch-link {
+    .watch-link {
         width: 90%;
         padding: 1rem 0px;
         background: red;
