@@ -5,10 +5,9 @@ function Movie() {
     const [data, setData] = useState(null)
 const data1 = useLocation()
 console.log(data, data1)
-
     useEffect(() => {
         setData(data1.state)
-    }, [])
+    }, []);
     
     if (data===null)
     {

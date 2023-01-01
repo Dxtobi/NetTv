@@ -68,7 +68,7 @@ export const Movies = () => {
         <div className='top-game'>
         <div className={`${styles.xPaddings}`}>
               <div className={'lets-explore text-[#7d7d7d]'}>Let's explore</div>
-                <div className='text-2xl'>Best anime</div>
+                <div className='text-2xl'>Best Movies</div>
                 <div className='text-xl mt-5'>Category</div>
                 <div className='category-list flex gap-4 mt-3'>
                     {
@@ -143,7 +143,8 @@ export const Movies = () => {
                     <div className='text-[#7d7d7d]'>{game.year}</div>
                   </motion.div>
                 ))
-              }</div>) : (<div className='loading'>Loading..</div>)}
+              }</div>) : (<div className='loading'>Loading..</div>)
+        }
         
         </div>
     </div>
