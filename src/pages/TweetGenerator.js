@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import openai from 'openai';
+import GenTwit from './GenTwiit';
 
 const TwitApi = () => {
   const [tweet, setTweet] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+    
 
   const handleChange = (event) => {
     setTweet(event.target.value);
@@ -23,7 +25,7 @@ const TwitApi = () => {
   };
 
   return (
-    <div className='twitter-api-div'>
+    <div className='pt-[100px] -z-10 flex flex-col m-auto twitter-api-div'>
         <div className='page-header-twit'>
             Get A Photo for your twit
         </div>
@@ -34,7 +36,10 @@ const TwitApi = () => {
         </div>
         <input type="submit" value="Generate Image"  className='twit-img-generate-btn'/>
       </form>
-      {imageUrl && <img src={imageUrl} alt="Generated Image" className='twit-generated-img'/>}
+          {imageUrl && <img src={imageUrl} alt="Generated Image" className='twit-generated-img' />}
+        
+          <div className='divider' />
+          <GenTwit/>
     </div>
   );
 };
