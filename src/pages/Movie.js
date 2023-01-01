@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Movie() {
     const [data, setData] = useState(null)
-const data1 = useLocation()
-console.log(data, data1)
+    const data1 = useLocation();
+    const nav = useNavigate();
+    console.log(data, data1)
+    
+    const goBack = () => {
+        nav('/')
+    }
     useEffect(() => {
         setData(data1.state)
     }, []);
+
     
     if (data===null)
     {
@@ -34,7 +40,7 @@ console.log(data, data1)
                     <div>Type: { data.type}</div>
                 <br/>
                 <div>Episodes: { data.episodes}</div>
-                <a className='watch-link' href={`${ data.link}`}>Watch Now</a>
+                <a className='watch-link' href={`${ data.url}`}>Watch Now</a>
             </div>
         </div>
         <div className="s-text">
@@ -50,7 +56,7 @@ console.log(data, data1)
                 {data.synopsis}
             </p>
             </div>
-            <button> Back </button>
+            <button className='watch-link' onClick={goBack}> Back </button>
     </div>
     );
 }
