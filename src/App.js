@@ -22,10 +22,10 @@ function App() {
         <Header toggleTheme={setSetDarkMood} mood={darkMood} />
         <Routes>
           <Route path='/' exact element={<Movies />} />
-          <Route path='/movie' exact element={<Movie />} />
-          <Route path='/anime' exact element={<Anime/>}/>
-          <Route path='/twit-imgs' exact element={ <TwitApi/>}/>
-          <Route path='*' exact element={<Movies/>}/>
+          <Route path='/movie'  element={<Movie />} />
+          <Route path='/anime'  element={<Anime/>}/>
+          <Route path='/twit-imgs'  element={ <TwitApi/>}/>
+          <Route path='*'  element={<Movies/>}/>
         </Routes>
         <Footer/>
       </div>
