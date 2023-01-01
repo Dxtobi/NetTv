@@ -30,6 +30,8 @@ const TwitApi = () => {
         prompt: tweet,
       }).then((response) => {
         setImageUrl(response.data.url);
+      }).catch((error) => {
+          console.log(error)
       });
   };
 

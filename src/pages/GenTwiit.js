@@ -33,6 +33,8 @@ const GenTwit = () => {
       formData,
     }).then((response) => {
       setTweet(response.data.tweet);
+    }).catch((error) => {
+        console.log(error)
     });
   };
 
