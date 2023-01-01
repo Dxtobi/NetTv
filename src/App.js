@@ -14,7 +14,7 @@ import { Movies } from './pages/Movies';
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [authenticated, setAuthenticated] = useState(false)
-  const [darkMood, setSetDarkMood] = useState(true)
+  const [darkMood, setSetDarkMood] = useState(false)
 
   return (
     <div className={`${darkMood ? 'dark' : ''} m-auto min-h-[100vh]`}>

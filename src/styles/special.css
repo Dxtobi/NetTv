@@ -113,14 +113,11 @@ a.watch-link {
 }
 .single-post {
     color: white;
-    position: fixed;
     overflow: scroll;
     background: #000004;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 20;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 4rem;
 }
 .search-container {
