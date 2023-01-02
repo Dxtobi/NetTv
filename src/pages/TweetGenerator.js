@@ -54,7 +54,7 @@ const TwitApi = () => {
     event.preventDefault();
 
     query({prompt: tweet}).then((response) => {
-        setImageUrl(response.data.url);
+        setImageUrl(response);
         console.log(response)
       }).catch((error) => {
           console.log("line 60 :::"+error)
