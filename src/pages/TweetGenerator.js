@@ -1,8 +1,38 @@
 import React, { useState } from 'react';
 //import openai from 'openai';
 //import OpenAIAPI from 'react-openai-api';
+
+
+
+
 import GenTwit from './GenTwiit';
 import { Configuration, OpenAIApi } from "openai"
+
+
+const DEFAULT_PARAMS = {
+    "model": "text-davinci-002",
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0,
+    "presence_penalty": 0
+  }
+  
+  export async function query(params = {}) {
+    const params_ = { ...DEFAULT_PARAMS, ...params };
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + String(process.env.OPEN_AI_KEY)
+      },
+      body: JSON.stringify(params_)
+    };
+    const response = await fetch('https://api.openai.com/v1/completions', requestOptions);
+    const data = await response.json();
+    return data;
+  }
+
 
 const TwitApi = () => {
   const [tweet, setTweet] = useState('');
@@ -23,15 +53,21 @@ const TwitApi = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    
+    query({prompt: tweet}).then((response) => {
+        setImageUrl(response.data.url);
+        console.log(response)
+      }).catch((error) => {
+          console.log("line 60 :::"+error)
+      });
 
     openai.createCompletion({
        // model: 'image-alpha-001',
         prompt: tweet,
       }).then((response) => {
-        setImageUrl(response.data.url);
+       // setImageUrl(response.data.url);
+        console.log(response)
       }).catch((error) => {
-          console.log(error)
+          console.log("line 70 :::"+error)
       });
   };
 
