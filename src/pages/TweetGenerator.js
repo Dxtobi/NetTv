@@ -55,7 +55,7 @@ const TwitApi = () => {
 
     query({prompt: tweet}).then((response) => {
         setImageUrl(response);
-        console.log(response)
+        console.log(response, process.env.OPEN_AI_KEY)
       }).catch((error) => {
           console.log("line 60 :::"+error)
       });
