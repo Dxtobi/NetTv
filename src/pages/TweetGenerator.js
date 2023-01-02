@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import GenTwit from './GenTwiit';
 import { Configuration, OpenAIApi } from "openai"
 
-
+const apikey = process.env.OPEN_AI_KEY
 const DEFAULT_PARAMS = {
     "model": "text-davinci-002",
     "temperature": 0.7,
@@ -24,7 +24,7 @@ const DEFAULT_PARAMS = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + String(process.env.OPEN_AI_KEY)
+        'Authorization': 'Bearer ' + String(apikey)
       },
       body: JSON.stringify(params_)
     };
@@ -46,7 +46,7 @@ const TwitApi = () => {
   
 
   const configuration = new Configuration({
-    apiKey: process.env.OPEN_AI_KEY,
+    apiKey: apikey,
   });
   const openai = new OpenAIApi(configuration);
 
@@ -55,7 +55,7 @@ const TwitApi = () => {
 
     query({prompt: tweet}).then((response) => {
         setImageUrl(response);
-        console.log(response, process.env.OPEN_AI_KEY)
+        console.log(response, apikey)
       }).catch((error) => {
           console.log("line 60 :::"+error)
       });
